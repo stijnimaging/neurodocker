@@ -60,7 +60,9 @@ generic:
         - http://mirrors.kernel.org/debian/pool/main/libp/libpng/libpng12-0_1.2.49-1%2Bdeb7u2_amd64.deb
     instructions: |
       {{ afni.install_dependencies() }}
+      {%- if afni.is_apt %}
       {{ afni.install_debs() }}
+      {% endif  -%}
       git clone https://github.com/afni/afni.git {{ afni.install_path }}
       cd {{ afni.install_path }}
       git checkout {{ afni.version }}
