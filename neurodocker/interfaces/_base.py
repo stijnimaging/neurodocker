@@ -233,6 +233,14 @@ class _BaseInterface:
         return self._pkg_manager
 
     @property
+    def is_apt(self):
+        return self._pkg_manager == 'apt'
+
+    @property
+    def is_yum(self):
+        return self._pkg_manager == 'yum'
+
+    @property
     def method(self):
         return self._method
 
