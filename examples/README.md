@@ -30,6 +30,7 @@ All of the examples below use `debian:stretch` as the base image, but any Docker
   - [Matlab Compiler Runtime (MCR)](#matlab-compiler-runtime-mcr)
   - [MINC](#minc)
   - [Miniconda](#miniconda)
+  - [MRIcron](#mricron)
   - [MRtrix3](#mrtrix3)
   - [NeuroDebian](#neurodebian)
   - [PETPVC](#petpvc)
@@ -259,13 +260,21 @@ neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=ap
 
 ## FreeSurfer
 
+Many FreeSurfer tools require a (no-cost) FreeSurfer license. These examples include copying the license file into the container.
+
 ```shell
 neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=apt \
-  --freesurfer version=6.0.0 method=binaries
+  --freesurfer version=6.0.0 method=binaries --copy license.txt /opt/freesurfer-6.0.0/
 
 # Install version minimized for recon-all
 neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=apt \
   --freesurfer version=6.0.0-min method=binaries
+
+# Copy FreeSurfer license to arbitrary path and set FS_LICENSE.
+neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=apt \
+  --freesurfer version=6.0.0-min method=binaries \
+  --copy license.txt /license.txt \
+  --env FS_LICENSE=/license.txt
 ```
 
 ## FSL
@@ -310,6 +319,13 @@ neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=ap
   --copy environment.yml /opt/environment.yml \
   --miniconda create_env=neuro \
               yaml_file=/opt/environment.yml
+```
+
+## MRIcron
+
+```shell
+neurodocker generate [docker|singularity] --base=debian:stretch --pkg-manager=apt \
+  --mricron version=latest
 ```
 
 ## MRtrix3

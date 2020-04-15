@@ -11,6 +11,7 @@ class TestMiniconda(object):
             'instructions': [
                 ('base', 'centos:7'),
                 ('user', 'neuro'),
+                ('workdir', '/home/neuro'),
                 (
                     'miniconda',
                     {
@@ -40,9 +41,11 @@ class TestMiniconda(object):
             'instructions': [
                 ('base', 'docker://debian:stretch-slim'),
                 ('user', 'neuro'),
+                ('workdir', '/home/neuro'),
                 (
                     'miniconda',
                     {
+                        'version': '4.6.14',
                         'create_env': 'default',
                         'conda_install': ['python=3.6.5', 'traits'],
                         'pip_install': ['nipype'],

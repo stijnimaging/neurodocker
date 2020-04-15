@@ -20,7 +20,7 @@ apt-get install -y {{ apt_opts|default('-q --no-install-recommends') }} \\\
     {%- endif -%}
 {% endfor %}
 apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/*
 """
 apt_install = jinja2.Template(apt_install)
 
@@ -33,7 +33,7 @@ yum_install = """yum install -y {{ yum_opts|default('-q') }} \\\
     {%- endif -%}
 {% endfor %}
 yum clean packages
-rm -rf /var/cache/yum/* /tmp/* /var/tmp/*
+rm -rf /var/cache/yum/*
 """
 yum_install = jinja2.Template(yum_install)
 
@@ -44,7 +44,7 @@ rm /tmp/toinstall.deb
 {% endfor -%}
 apt-get install -f
 apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/*
 """
 deb_install = jinja2.Template(deb_install)
 
@@ -146,7 +146,7 @@ class _Resolver:
         if self.version_has_method(version_key, 'binaries'):
             try:
                 urls = self._d[version_key]['binaries']['urls'].keys()
-                return version in urls
+                return version in urls or "*" in urls
             except KeyError:
                 raise ValueError(
                     "no binary URLs defined for version '{}'".format(version)
@@ -169,7 +169,10 @@ class _Resolver:
     def binaries_url(self, version):
         self.check_binaries_has_url(version)
         version_key = self.get_version_key(version)
-        return self._d[version_key]['binaries']['urls'][version]
+        urls = self._d[version_key]['binaries']['urls']
+        if version in urls:
+            return urls[version]
+        return urls["*"].format(version)
 
 
 class _BaseInterface:

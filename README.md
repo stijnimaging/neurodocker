@@ -1,7 +1,7 @@
 # Neurodocker
 
-[![build status](https://img.shields.io/circleci/project/github/kaczmarj/neurodocker/master.svg)](https://circleci.com/gh/kaczmarj/neurodocker/tree/master)
-[![docker pulls](https://img.shields.io/docker/pulls/kaczmarj/neurodocker.svg)](https://hub.docker.com/r/kaczmarj/neurodocker/)
+[![build status](https://img.shields.io/circleci/project/github/ReproNim/neurodocker/master.svg)](https://circleci.com/gh/ReproNim/neurodocker/tree/master)
+[![docker pulls](https://img.shields.io/docker/pulls/kaczmarj/neurodocker.svg)](https://hub.docker.com/r/repronim/neurodocker/)
 [![python versions](https://img.shields.io/pypi/pyversions/neurodocker.svg)](https://pypi.org/project/neurodocker/)
 
 _Neurodocker_ is a command-line program that generates custom Dockerfiles and Singularity recipes for neuroimaging and minifies existing containers.
@@ -20,22 +20,24 @@ _Neurodocker_ is a command-line program that generates custom Dockerfiles and Si
 Use the _Neurodocker_ Docker image (recommended):
 
 ```shell
-$ docker run --rm kaczmarj/neurodocker:0.4.3 --help
+docker run --rm repronim/neurodocker:0.7.0 --help
 ```
+
+The Docker images were recently moved to [repronim/neurodocker](https://hub.docker.com/r/repronim/neurodocker) from [kaczmarj/neurodocker](https://hub.docker.com/r/kaczmarj/neurodocker).
 
 _Note_: Do not use the `-t/--tty` flag with `docker run` or non-printable characters will be a part of the output (see [moby/moby#8513 (comment)](https://github.com/moby/moby/issues/8513#issuecomment-216191236)).
 
 This project can also be installed with `pip`:
 
 ```shell
-$ pip install neurodocker
-$ neurodocker --help
+pip install neurodocker
+neurodocker --help
 ```
 
 If the `pip install` command above gives a permissions error, install as a non-root user:
 
 ```shell
-$ pip install --user neurodocker
+pip install --user neurodocker
 ```
 
 Note: it is not yet possible to minimize Docker containers using the _Neurodocker_ Docker image.
@@ -68,8 +70,7 @@ Note: it is not yet possible to minimize Docker containers using the _Neurodocke
 |                             | method           | binaries (default)                                                                                                                                  |
 |                             | install_path     | Installation path. Default `/opt/freesurfer-{version}`.                                                                                             |
 |                             | exclude_paths    | Sequence of space-separated path(s) to exclude when inflating the tarball.                                                                          |
-|                             | license_path     | Relative path to license file. If provided, this file will be copied into the Docker image. Must be within the build context.                       |
-| **FSL\*\***                 | version\*        | 5.0.11, 5.0.10, 5.0.9, 5.0.8                                                                                                                        |
+| **FSL\*\***                 | version\*        | 6.0.3, 6.0.2, 6.0.1, 6.0.0, 5.0.11, 5.0.10, 5.0.9, 5.0.8                                                                                                                        |
 |                             | method           | binaries (default)                                                                                                                                  |
 |                             | install_path     | Installation path. Default `/opt/fsl-{version}`.                                                                                                    |
 |                             | exclude_paths    | Sequence of space-separated path(s) to exclude when inflating the tarball.                                                                          |
@@ -86,6 +87,8 @@ Note: it is not yet possible to minimize Docker containers using the _Neurodocke
 |                             | conda_install    | Packages to install with `conda`. E.g., `conda_install="python=3.6 numpy traits"`                                                                   |
 |                             | pip_install      | Packages to install with `pip`.                                                                                                                     |
 |                             | activate         | If true (default), activate this environment in container entrypoint.                                                                               |
+| **MRIcron** | version\* | latest, 1.0.20190902, 1.0.20190410, 1.0.20181114, 1.0.20180614, 1.0.20180404, 1.0.20171220 |
+| | install_path | Installation path. Default `/opt/mricron-{version}` |
 | **MRtrix3**                 | version\*        | 3.0                                                                                                                                                 |
 |                             | method           | binaries (default)                                                                                                                                  |
 |                             | install_path     | Installation path. Default `/opt/mrtrix3-{version}`.                                                                                                |
@@ -234,11 +237,11 @@ _Note_: Do not use the `-t/--tty` flag with `docker run` or non-printable charac
 ### Docker
 
 ```shell
-$ docker run --rm kaczmarj/neurodocker:0.4.3 generate docker \
+docker run --rm repronim/neurodocker:0.7.0 generate docker \
     --base debian:stretch --pkg-manager apt --ants version=2.3.1
 
 # Build image by piping Dockerfile to `docker build`
-$ docker run --rm kaczmarj/neurodocker:0.4.3 generate docker \
+docker run --rm repronim/neurodocker:0.7.0 generate docker \
     --base debian:stretch --pkg-manager apt --ants version=2.3.1 | docker build -
 ```
 
@@ -247,32 +250,39 @@ $ docker run --rm kaczmarj/neurodocker:0.4.3 generate docker \
 Install ANTs on Debian 9 (Stretch).
 
 ```shell
-$ docker run --rm kaczmarj/neurodocker:0.4.3 generate singularity \
+docker run --rm repronim/neurodocker:0.7.0 generate singularity \
     --base debian:stretch --pkg-manager apt --ants version=2.3.1
 ```
 
 ## Minimize existing Docker image
 
-_Neurodocker_ must be `pip` installed for container minimization.
+_Neurodocker_ must be `pip` installed for container minimization. The `docker` Python package must also be installed.
 
-In the following example, a Docker image is built with ANTs version 2.3.1 and a functional scan. The image is minified for running `antsMotionCorr`. The original ANTs Docker image is 1.85 GB, and the "minified" image is 365 MB.
+In the following example, a Docker image is built with ANTs version 2.3.1 and a functional scan. The image is minified for running `antsMotionCorr`. The original ANTs Docker image is 1.97 GB, and the "minified" image is 293 MB. The only directory that is pruned is `/opt`, which includes the ANTs installation. This means that important directories like `/usr` and `/bin` are untouched, and the container can still be used interactively.
 
 ```shell
 # Create a Docker image with ANTs, and download a functional scan.
-$ download_cmd="curl -sSL -o /home/func.nii.gz http://psydata.ovgu.de/studyforrest/phase2/sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz"
-$ neurodocker generate docker -b centos:7 -p yum --ants version=2.3.1 --run="$download_cmd" | docker build -t ants:2.3.1 -
+download_cmd="curl -sSL -o /home/func.nii.gz http://psydata.ovgu.de/studyforrest/phase2/sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz"
+neurodocker generate docker -b centos:7 -p yum --ants version=2.3.1 --run="$download_cmd" | docker build -t ants:2.3.1 -
 
-# Run the container in the background.
-# The option --security-opt=seccomp:unconfined is important. Without this,
-# the trace will not be able to run in the container.
-$ docker run --rm -itd --name ants-container --security-opt=seccomp:unconfined ants:2.3.1
+# Run the container in the background. The option --security-opt=seccomp:unconfined is
+# important. Without this, the trace will not be able to run in the container.
+docker run --rm -itd --name ants-container --security-opt=seccomp:unconfined ants:2.3.1
 
-# Output a ReproZip pack file in the current directory with the files
-# necessary to run antsMotionCorr.
-$ cmd="antsMotionCorr -d 3 -a /home/func.nii.gz -o /home/func_avg.nii.gz"
-$ neurodocker reprozip trace ants-container "$cmd"
-# Create a Docker container with the contents of ReproZip's trace.
-$ reprounzip docker setup neurodocker-reprozip.rpz test
+# Find all of the files under `/opt` that are not used by the command(s), and queue
+# those files for deletion.
+cmd="antsMotionCorr -d 3 -a /home/func.nii.gz -o /home/func_avg.nii.gz"
+neurodocker-minify --container ants-container --dirs-to-prune /opt --commands "$cmd"
+# Read through the list of files that will be deleted, and respond with the keyboard.
+# Then, create a new Docker image using the pruned container.
+docker export ants-container | docker import - ants:2.3.1-min-motioncorr
+
+# View a summary of the Docker images.
+docker images
+# REPOSITORY          TAG                    IMAGE ID            CREATED              SIZE
+# ants                2.3.1-min-motioncorr   6436f58e965c        About a minute ago   293MB
+# ants                2.3.1                  b56f5e9d1805        17 minutes ago       1.97GB
+# centos              7                      5e35e350aded        4 months ago         203MB
 ```
 
 # Known issues
@@ -281,6 +291,9 @@ $ reprounzip docker setup neurodocker-reprozip.rpz test
   - Solution: do not use the `-t/--tty` flag, unless using the container interactively.
 - Attempting to rebuild into an existing Singularity image may raise an error.
   - Solution: remove the existing image or build a new image file.
-- The default apt --install option "--no-install-recommends" (that aims at minimizing container sizes) can cause a strange behaviour for cython inside the container
-  - Solution: use "--install apt_opts=`--quiet` "
-  - more information: [examples](examples#--install)
+- The default apt `--install` option `--no-install-recommends` (that aims at minimizing container sizes) can cause unexpected behavior.
+  - Solution: use `--install apt_opts="--quiet"`
+  - Please see the [examples](examples#--install) for more information.
+- FreeSurfer cannot find my license file.
+  - Solution: get a free license from [FreeSurfer's website](https://surfer.nmr.mgh.harvard.edu/registration.html), and copy it into the container. To build the Docker image, please use the form `docker build .` instead of `docker build - < Dockerfile`. The latter form will not copy files into the image.
+  - Please see the [examples](examples#freesurfer) for more information.

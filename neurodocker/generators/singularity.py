@@ -104,6 +104,8 @@ class SingularityRecipe(ContainerSpecGenerator):
         self._add_neurodocker_header()
         self._add_json()
 
+        self._rendered = False
+
     def render(self):
         def _render_one(section):
             renderer = getattr(self, "_render_{}".format(section))
@@ -111,8 +113,11 @@ class SingularityRecipe(ContainerSpecGenerator):
 
         if not self._parts_filled:
             self._fill_parts()
-        return self.commented_header + "\n\n".join(
-            map(_render_one, (sec for sec, con in self._order if con)))
+
+        if not self._rendered:
+            self._rendered = self.commented_header + "\n\n".join(
+                map(_render_one, (sec for sec, con in self._order if con)))
+        return self._rendered
 
     def _render_header(self):
         return "\n".join(
@@ -152,6 +157,8 @@ class SingularityRecipe(ContainerSpecGenerator):
             if self._specs['instructions'][1][0] == 'ndfreeze':
                 offset = 1
         self._specs['instructions'].insert(1 + offset, ('_header', kwds))
+        self._specs['instructions'].insert(1 + offset, ('user', 'root'))
+
 
     def _fill_parts(self):
         pkg_man = self._specs['pkg_manager']
