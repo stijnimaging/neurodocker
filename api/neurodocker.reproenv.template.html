@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neurodocker.reproenv.template module &#8212; Neurodocker  documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="neurodocker.reproenv.types module" href="neurodocker.reproenv.types.html" />
+    <link rel="prev" title="neurodocker.reproenv.state module" href="neurodocker.reproenv.state.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Neurodocker</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../user_guide/index.html">User Guide</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../api.html">API Reference</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-neurodocker.reproenv.template">
+<span id="neurodocker-reproenv-template-module"></span><h1>neurodocker.reproenv.template module<a class="headerlink" href="#module-neurodocker.reproenv.template" title="Permalink to this headline">¶</a></h1>
+<p>Template objects.</p>
+<dl class="py class">
+<dt id="neurodocker.reproenv.template.Template">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">neurodocker.reproenv.template.</span></code><code class="sig-name descname"><span class="pre">Template</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="neurodocker.reproenv.types.html#neurodocker.reproenv.types.TemplateType" title="neurodocker.reproenv.types.TemplateType"><span class="pre">neurodocker.reproenv.types.TemplateType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">binaries_kwds</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_kwds</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neurodocker/reproenv/template.html#Template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neurodocker.reproenv.template.Template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Template object.</p>
+<p>This class makes it more convenient to work with templates. It also allows one to
+set keyword arguments for instances of templates. For example, if a template calls
+for an argument <cite>version</cite>, this class can be used to hold both the template and the
+value for <cite>version</cite>.</p>
+<p>Keywords are not validated during initialization. To validate keywords, use the
+instance method <cite>self.binaries.validate_kwds()</cite> and`self.source.validate_kwds()`.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template</strong> (<a class="reference internal" href="neurodocker.reproenv.types.html#neurodocker.reproenv.types.TemplateType" title="neurodocker.reproenv.types.TemplateType"><em>TemplateType</em></a>) – Dictionary that defines how to install software from pre-compiled binaries
+and/or from source.</p></li>
+<li><p><strong>binaries_kwds</strong> (<em>dict</em>) – Keyword arguments to pass to the binaries section of the template. All keys and
+values must be strings.</p></li>
+<li><p><strong>source_kwds</strong> (<em>dict</em>) – Keyword arguments passed to the source section of the template. All keys and
+values must be strings.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="neurodocker.reproenv.template.Template.alert">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">alert</span></code><a class="headerlink" href="#neurodocker.reproenv.template.Template.alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the template’s <cite>alert</cite> property. Return an empty string if it does
+not exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neurodocker.reproenv.template.Template.binaries">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">binaries</span></code><a class="headerlink" href="#neurodocker.reproenv.template.Template.binaries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="neurodocker.reproenv.template.Template.name">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#neurodocker.reproenv.template.Template.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="neurodocker.reproenv.template.Template.source">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">source</span></code><a class="headerlink" href="#neurodocker.reproenv.template.Template.source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="neurodocker.reproenv.state.html" title="previous page">neurodocker.reproenv.state module</a>
+    <a class='right-next' id="next-link" href="neurodocker.reproenv.types.html" title="next page">neurodocker.reproenv.types module</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Neurodocker Developers.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neurodocker.reproenv.types &#8212; Neurodocker  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../index.html">
+    
+      <p class="title">Neurodocker</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../user_guide/index.html">User Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../api.html">API Reference</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for neurodocker.reproenv.types</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Define types used in ReproEnv.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">ty</span>
+
+<span class="kn">from</span> <span class="nn">mypy_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="n">allowed_installation_methods</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;binaries&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">}</span>
+<span class="n">installation_methods_type</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;binaries&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">]</span>
+
+<span class="n">allowed_pkg_managers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apt&quot;</span><span class="p">,</span> <span class="s2">&quot;yum&quot;</span><span class="p">}</span>
+<span class="n">pkg_managers_type</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;apt&quot;</span><span class="p">,</span> <span class="s2">&quot;yum&quot;</span><span class="p">]</span>
+
+<span class="c1"># Cross-reference the dictionary types below with the JSON schemas.</span>
+
+
+<span class="k">class</span> <span class="nc">_InstallationDependenciesType</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Dictionary of system dependencies, with package managers as keys. Different</span>
+<span class="sd">    distributions use different package managers. For example, CentOS and Fedora use</span>
+<span class="sd">    `yum`, and Debian and Ubuntu use `apt` and `dpkg`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">apt</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">debs</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">yum</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">_TemplateArgumentsType</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Arguments (i.e., variables) that are used in the template.&quot;&quot;&quot;</span>
+
+    <span class="n">required</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">optional</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">_BaseTemplateType</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Keys common to both types of templates: binaries and source.&quot;&quot;&quot;</span>
+
+    <span class="n">arguments</span><span class="p">:</span> <span class="n">_TemplateArgumentsType</span>
+    <span class="n">env</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="n">_InstallationDependenciesType</span>
+    <span class="n">instructions</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">_SourceTemplateType</span><span class="p">(</span><span class="n">_BaseTemplateType</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Template that defines how to install software by source.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">_BinariesTemplateType</span><span class="p">(</span><span class="n">_BaseTemplateType</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Template that defines how to install software from pre-compiled binaries.&quot;&quot;&quot;</span>
+
+    <span class="n">urls</span><span class="p">:</span> <span class="n">ty</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="TemplateType"><a class="viewcode-back" href="../../../api/neurodocker.reproenv.types.html#neurodocker.reproenv.types.TemplateType">[docs]</a><span class="k">class</span> <span class="nc">TemplateType</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Dictionary that includes a template for installing software from binaries, a</span>
+<span class="sd">    template for installing software from source, or both.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">binaries</span><span class="p">:</span> <span class="n">_BinariesTemplateType</span>
+    <span class="n">source</span><span class="p">:</span> <span class="n">_SourceTemplateType</span>
+    <span class="n">alert</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+<span class="k">class</span> <span class="nc">_SingularityHeaderType</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Dictionary that defines the header of a Singularity recipe.&quot;&quot;&quot;</span>
+
+    <span class="n">bootstrap</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">from_</span><span class="p">:</span> <span class="nb">str</span>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Neurodocker Developers.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

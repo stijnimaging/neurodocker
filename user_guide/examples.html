@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples &#8212; Neurodocker  documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common Uses" href="common_uses.html" />
+    <link rel="prev" title="Command-line Interface" href="cli.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Neurodocker</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">User Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api.html">API Reference</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="installation.html">Installation</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="quickstart.html">Quickstart</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="cli.html">Command-line Interface</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Examples</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="common_uses.html">Common Uses</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="minify.html">Minify Containers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="templates_renderers.html">Templates and Renderers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="add_template.html">Add software to Neurodocker</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="known_issues.html">Known Issues</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#fsl" class="nav-link">FSL</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#docker" class="nav-link">Docker</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#afni" class="nav-link">AFNI</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#afni-docker" class="nav-link">Docker</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#freesurfer" class="nav-link">FreeSurfer</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#freesurfer-docker" class="nav-link">Docker</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#ants" class="nav-link">ANTS</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#spm" class="nav-link">SPM</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#miniconda" class="nav-link">Miniconda</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#nipype-tutorial" class="nav-link">Nipype tutorial</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#nipype-tutorial-docker" class="nav-link">Docker</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>This page includes examples of using Neurodocker to build containers with popular
+neuroimaging packages. The commands generate Dockerfiles. To generate Singularity
+recipes, simply replace</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate singularity
+</pre></div>
+</div>
+<p>To see the options for each package, please run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker --help
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate singularity --help
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Neurodocker is meant to create command-line environments. At the moment, graphical
+user interfaces (like FreeView and FSLEyes) are not installed properly. It is
+possible that this will change in the future.</p>
+</div>
+<div class="section" id="fsl">
+<h2>FSL<a class="headerlink" href="#fsl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="docker">
+<span id="fsl-docker"></span><h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --fsl <span class="nv">version</span><span class="o">=</span><span class="m">6</span>.0.4 <span class="se">\</span>
+&gt; fsl604.Dockerfile
+
+docker build --tag fsl:6.0.4 --file fsl604.Dockerfile .
+
+<span class="c1"># Run fsl&#39;s bet program.</span>
+docker run --rm -it fsl:6.0.4 bet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="afni">
+<h2>AFNI<a class="headerlink" href="#afni" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="afni-docker">
+<span id="id1"></span><h3>Docker<a class="headerlink" href="#afni-docker" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --afni <span class="nv">method</span><span class="o">=</span>binaries <span class="nv">version</span><span class="o">=</span>latest <span class="se">\</span>
+&gt; afni-binaries.Dockerfile
+
+docker build --tag afni:latest --file afni-binaries.Dockerfile .
+</pre></div>
+</div>
+<p>This does not install AFNI’s R packages. To install relevant R things, use the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --afni <span class="nv">method</span><span class="o">=</span>binaries <span class="nv">version</span><span class="o">=</span>latest <span class="nv">install_r_pkgs</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+&gt; afni-binaries-r.Dockerfile
+
+docker build --tag afni:latest-with-r --file afni-binaries-r.Dockerfile .
+</pre></div>
+</div>
+<p>One can also build AFNI from source. The code below builds the current master branch.
+Beware that this is AFNI’s bleeding edge!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --afni <span class="nv">method</span><span class="o">=</span><span class="nb">source</span> <span class="nv">version</span><span class="o">=</span>master <span class="se">\</span>
+&gt; afni-source.Dockerfile
+
+docker build --tag afni:master --file afni-source.Dockerfile .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="freesurfer">
+<h2>FreeSurfer<a class="headerlink" href="#freesurfer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="freesurfer-docker">
+<span id="id2"></span><h3>Docker<a class="headerlink" href="#freesurfer-docker" title="Permalink to this headline">¶</a></h3>
+<p>The FreeSurfer installation is several gigabytes in size, but sometimes, users just
+the pieces for <code class="code docutils literal notranslate"><span class="pre">recon-all</span></code>. For this reason, Neurodocker provides a FreeSurfer
+minified for <code class="code docutils literal notranslate"><span class="pre">recon-all</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --freesurfer <span class="nv">version</span><span class="o">=</span><span class="m">7</span>.1.1-min <span class="se">\</span>
+&gt; freesurfer7-min.Dockerfile
+
+docker build --tag freesurfer:7.1.1-min --file freesurfer7-min.Dockerfile .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ants">
+<h2>ANTS<a class="headerlink" href="#ants" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:buster-slim <span class="se">\</span>
+    --ants <span class="nv">version</span><span class="o">=</span><span class="m">2</span>.3.4 <span class="se">\</span>
+&gt; ants-234.Dockerfile
+
+docker build --tag ants:2.3.4 --file ants-234.Dockerfile .
+</pre></div>
+</div>
+</div>
+<div class="section" id="spm">
+<h2>SPM<a class="headerlink" href="#spm" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to the version of the Matlab Compiler Runtime used, SPM12 should be used with
+a Debian Stretch base image.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+    --pkg-manager apt <span class="se">\</span>
+    --base-image debian:stretch-slim <span class="se">\</span>
+    --spm12 <span class="nv">version</span><span class="o">=</span>r7771 <span class="se">\</span>
+&gt; spm12-r7771.Dockerfile
+
+docker build --tag spm12:r7771 --file spm12-r7771.Dockerfile .
+</pre></div>
+</div>
+</div>
+<div class="section" id="miniconda">
+<h2>Miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Add an example of building a Miniconda image.</p>
+</div>
+</div>
+<div class="section" id="nipype-tutorial">
+<h2>Nipype tutorial<a class="headerlink" href="#nipype-tutorial" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nipype-tutorial-docker">
+<span id="id4"></span><h3>Docker<a class="headerlink" href="#nipype-tutorial-docker" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker <span class="se">\</span>
+--pkg-manager apt <span class="se">\</span>
+--base-image neurodebian:stretch-non-free <span class="se">\</span>
+--arg <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="se">\</span>
+--install convert3d ants fsl gcc g++ graphviz tree <span class="se">\</span>
+        git-annex-standalone vim emacs-nox nano less ncdu <span class="se">\</span>
+        tig git-annex-remote-rclone octave netbase <span class="se">\</span>
+--spm12 <span class="nv">version</span><span class="o">=</span>r7771 <span class="se">\</span>
+--miniconda <span class="se">\</span>
+<span class="nv">version</span><span class="o">=</span>latest <span class="se">\</span>
+<span class="nv">conda_install</span><span class="o">=</span><span class="s2">&quot;python=3.8 pytest jupyter jupyterlab jupyter_contrib_nbextensions</span>
+<span class="s2">                traits pandas matplotlib scikit-learn scikit-image seaborn nbformat</span>
+<span class="s2">                nb_conda&quot;</span> <span class="se">\</span>
+<span class="nv">pip_install</span><span class="o">=</span><span class="s2">&quot;https://github.com/nipy/nipype/tarball/master</span>
+<span class="s2">                https://github.com/INCF/pybids/tarball/master</span>
+<span class="s2">                nilearn datalad[full] nipy duecredit nbval&quot;</span> <span class="se">\</span>
+--run <span class="s1">&#39;jupyter nbextension enable exercise2/main &amp;&amp; jupyter nbextension enable spellchecker/main&#39;</span> <span class="se">\</span>
+--run <span class="s1">&#39;mkdir /data &amp;&amp; chmod 777 /data &amp;&amp; chmod a+s /data&#39;</span> <span class="se">\</span>
+--run <span class="s1">&#39;mkdir /output &amp;&amp; chmod 777 /output &amp;&amp; chmod a+s /output&#39;</span> <span class="se">\</span>
+--user neuro <span class="se">\</span>
+--run-bash <span class="s1">&#39;cd /data</span>
+<span class="s1">&amp;&amp; datalad install -r ///workshops/nih-2017/ds000114</span>
+<span class="s1">&amp;&amp; cd ds000114</span>
+<span class="s1">&amp;&amp; datalad update -r</span>
+<span class="s1">&amp;&amp; datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*&#39;</span> <span class="se">\</span>
+--run <span class="s1">&#39;curl -fL https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz</span>
+<span class="s1">&amp;&amp; tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/.</span>
+<span class="s1">&amp;&amp; rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz</span>
+<span class="s1">&amp;&amp; find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete&#39;</span> <span class="se">\</span>
+--copy . <span class="s2">&quot;/home/neuro/nipype_tutorial&quot;</span> <span class="se">\</span>
+--user root <span class="se">\</span>
+--run <span class="s1">&#39;chown -R neuro /home/neuro/nipype_tutorial&#39;</span> <span class="se">\</span>
+--run <span class="s1">&#39;rm -rf /opt/conda/pkgs/*&#39;</span> <span class="se">\</span>
+--user neuro <span class="se">\</span>
+--run <span class="s1">&#39;mkdir -p ~/.jupyter &amp;&amp; echo c.NotebookApp.ip = \&quot;0.0.0.0\&quot; &gt; ~/.jupyter/jupyter_notebook_config.py&#39;</span> <span class="se">\</span>
+--workdir /home/neuro/nipype_tutorial <span class="se">\</span>
+--entrypoint jupyter-notebook <span class="se">\</span>
+&gt; nipype-tutorial.Dockerfile
+
+docker build --tag nipype-tutorial .
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="cli.html" title="previous page">Command-line Interface</a>
+    <a class='right-next' id="next-link" href="common_uses.html" title="next page">Common Uses</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Neurodocker Developers.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

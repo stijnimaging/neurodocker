@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quickstart &#8212; Neurodocker  documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command-line Interface" href="cli.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Neurodocker</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">User Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api.html">API Reference</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="installation.html">Installation</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Quickstart</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="cli.html">Command-line Interface</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="examples.html">Examples</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="common_uses.html">Common Uses</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="minify.html">Minify Containers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="templates_renderers.html">Templates and Renderers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="add_template.html">Add software to Neurodocker</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="known_issues.html">Known Issues</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#generate-a-container" class="nav-link">Generate a container</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#docker" class="nav-link">Docker</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#singularity" class="nav-link">Singularity</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#minify-a-docker-container" class="nav-link">Minify a Docker container</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generate-a-container">
+<h2>Generate a container<a class="headerlink" href="#generate-a-container" title="Permalink to this headline">¶</a></h2>
+<p>Use the command <code class="code docutils literal notranslate"><span class="pre">neurodocker</span> <span class="pre">generate</span></code> to generate containers. In the examples below,
+we generate containers with <a class="reference external" href="https://nipype.readthedocs.io/en/latest/">Nipype</a>,
+<a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a>, and <a class="reference external" href="https://github.com/ANTsX/ANTs">ANTs</a>.</p>
+<p>Please see the <a class="reference internal" href="examples.html"><span class="doc">Examples</span></a> page for more.</p>
+<div class="section" id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<p>Run the following code snippet to generate a <a class="reference external" href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>.
+This is a file that defines how to build a Docker image.</p>
+<p>(This requires having <a class="reference external" href="https://docs.docker.com/get-docker/">Docker</a> installed)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate docker --pkg-manager apt <span class="se">\</span>
+    --base-image neurodebian:buster <span class="se">\</span>
+    --ants <span class="nv">version</span><span class="o">=</span><span class="m">2</span>.3.4 <span class="se">\</span>
+    --miniconda <span class="nv">version</span><span class="o">=</span>latest <span class="nv">conda_install</span><span class="o">=</span><span class="s2">&quot;nipype notebook&quot;</span> <span class="se">\</span>
+    --user nonroot
+</pre></div>
+</div>
+<p>You should see a block of text appear in the console. This is the Dockerfile generated
+by <em>Neurodocker</em>. Instructions in the Dockerfile are ordered in the same way as the
+arguments in the command-line. To build a Docker image with this, save the output to a
+file in an empty directory, and build with <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir docker-example
+<span class="nb">cd</span> docker-example
+neurodocker generate docker --pkg-manager apt <span class="se">\</span>
+    --base-image neurodebian:buster <span class="se">\</span>
+    --ants <span class="nv">version</span><span class="o">=</span><span class="m">2</span>.3.4 <span class="se">\</span>
+    --miniconda <span class="nv">version</span><span class="o">=</span>latest <span class="nv">conda_install</span><span class="o">=</span><span class="s2">&quot;nipype notebook&quot;</span> <span class="se">\</span>
+    --user nonroot &gt; Dockerfile
+docker build --tag nipype-ants .
+</pre></div>
+</div>
+<p>Then, you can start a Jupyter Notebook with the following command. This will mount
+the current working directory to <code class="code docutils literal notranslate"><span class="pre">work</span></code> within the container, so any files you
+create in this directory are saved. If we had not mounted this directory, all of the files
+created in <code class="code docutils literal notranslate"><span class="pre">/work</span></code> would be gone after the container was stopped.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it --workdir /work --volume <span class="nv">$PWD</span>:/work --publish <span class="m">8888</span>:8888 <span class="se">\</span>
+    nipype-ants jupyter-notebook --ip <span class="m">0</span>.0.0.0 --port <span class="m">8888</span>
+</pre></div>
+</div>
+<p>Feel free to create a new notebook and <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">nipype</span></code>.</p>
+</div>
+<div class="section" id="singularity">
+<h3>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline">¶</a></h3>
+<p>The only difference between this command and the one above is <code class="code docutils literal notranslate"><span class="pre">neurodocker</span> <span class="pre">generate</span> <span class="pre">singularity</span></code>
+versus <code class="code docutils literal notranslate"><span class="pre">neurodocker</span> <span class="pre">generate</span> <span class="pre">docker</span></code>. This will be the case when generating the
+majority of containers. The code block below generates a
+<a class="reference external" href="https://sylabs.io/guides/3.7/user-guide/definition_files.html">Singularity definition file</a>.
+This file can be used to create a Singularity container.</p>
+<p>(This requires having <a class="reference external" href="https://sylabs.io/guides/3.7/user-guide/quick_start.html">Singularity</a> installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neurodocker generate singularity --pkg-manager apt <span class="se">\</span>
+    --base-image neurodebian:buster <span class="se">\</span>
+    --ants <span class="nv">version</span><span class="o">=</span><span class="m">2</span>.3.4 <span class="se">\</span>
+    --miniconda <span class="nv">version</span><span class="o">=</span>latest <span class="nv">conda_install</span><span class="o">=</span><span class="s2">&quot;nipype notebook&quot;</span> <span class="se">\</span>
+    --user nonroot
+</pre></div>
+</div>
+<p>You should see a block of text appear in the console. This is the Singularity definition.
+To build the Singularity image, create a new directory, save this output to a file, and
+use <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">singularity</span> <span class="pre">build</span></code>. Note that this requires superuser privileges. You
+will not be able to run this on a shared computing environment, like a high performance cluster.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir singularity-example
+<span class="nb">cd</span> singularity-example
+neurodocker generate singularity --pkg-manager apt <span class="se">\</span>
+    --base-image neurodebian:buster <span class="se">\</span>
+    --ants <span class="nv">version</span><span class="o">=</span><span class="m">2</span>.3.4 <span class="se">\</span>
+    --miniconda <span class="nv">version</span><span class="o">=</span>latest <span class="nv">conda_install</span><span class="o">=</span><span class="s2">&quot;nipype notebook&quot;</span> <span class="se">\</span>
+    --user nonroot &gt; Singularity
+sudo singularity build nipype-ants.sif Singularity
+</pre></div>
+</div>
+<p>This will create a new file <code class="code docutils literal notranslate"><span class="pre">nipype-ants.sif</span></code> in this directory. This is the
+Singularity container. You can move this file around like any other file – even share
+it with all of your friends.</p>
+<p>To run Jupyter Notebook, use the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run --bind <span class="nv">$PWD</span>:/work --pwd /work nipype-ants.sif jupyter-notebook
+</pre></div>
+</div>
+<p>Feel free to create a new notebook and <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">nipype</span></code>.</p>
+</div>
+</div>
+<div class="section" id="minify-a-docker-container">
+<h2>Minify a Docker container<a class="headerlink" href="#minify-a-docker-container" title="Permalink to this headline">¶</a></h2>
+<p><em>Neurodocker</em> enables you to minify Docker containers for a set of commands. This will
+remove files not used by these commands and will dramatically reduce the size of the
+Docker image.</p>
+<p>See <code class="code docutils literal notranslate"><span class="pre">neurodocker</span> <span class="pre">minify</span> <span class="pre">--help</span></code> for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Neurodocker must be installed with <code class="code docutils literal notranslate"><span class="pre">pip</span></code> to minify containers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">neurodocker</span><span class="p">[</span><span class="n">minify</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>In the example below, we minify one of the official Python Docker images for certain
+commands. This will remove all of the files in <code class="code docutils literal notranslate"><span class="pre">/usr/local/</span></code> that are not used by
+these commands.</p>
+<p><a class="reference external" href="https://www.reprozip.org/">ReproZip</a> is used to determine the files used by the
+commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -itd --name to-minify python:3.9-slim bash
+neurodocker minify <span class="se">\</span>
+  --container to-minify <span class="se">\</span>
+  --dir /usr/local <span class="se">\</span>
+  <span class="s2">&quot;python -c &#39;a = 1 + 1; print(a)&#39;&quot;</span> <span class="se">\</span>
+  <span class="s2">&quot;python -c &#39;import os&#39;&quot;</span>
+</pre></div>
+</div>
+<p>You will be given a list of all of the files that will be deleted. Review this list of
+files before proceeding.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">export</span> to-minify <span class="p">|</span> docker import - minified-python
+</pre></div>
+</div>
+<p>Now if you run <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code>, the image <code class="code docutils literal notranslate"><span class="pre">minified-python</span></code> will be listed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Environment variables are lost when saving the minified image as a new image. If
+certain environment variables are required in the minified image, users should
+create a new Dockerfile that uses the minified image as a base image and then sets
+environment variables.</p>
+</div>
+<p>The commands that were run during minification will (read: should) succeed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm minified-python python -c <span class="s2">&quot;a = 1 + 1; print(a)&quot;</span>
+docker run --rm minified-python python -c <span class="s2">&quot;import os&quot;</span>
+</pre></div>
+</div>
+<p>But commands not run during minification are <em>not guaranteed to succeed</em>. The following
+commands, for example, result in errors.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm minified-python python -c <span class="s1">&#39;import math&#39;</span>
+docker run --rm minified-python python -c <span class="s1">&#39;import pathlib&#39;</span>
+docker run --rm minified-python pip --help
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">Installation</a>
+    <a class='right-next' id="next-link" href="cli.html" title="next page">Command-line Interface</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Neurodocker Developers.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
