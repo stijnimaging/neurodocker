@@ -1,4 +1,5 @@
-FROM alpine:3.11.5
+FROM debian:stretch
+RUN apt-get update
 
 COPY . /opt/neurodocker
 
