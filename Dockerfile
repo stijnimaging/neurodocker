@@ -8,4 +8,4 @@ RUN apk add --update --no-cache git python3 \
 
 LABEL maintainer="Jakub Kaczmarzyk <jakub.kaczmarzyk@gmail.com>"
 
-ENTRYPOINT ["neurodocker"]
+#ENTRYPOINT ["neurodocker"]
